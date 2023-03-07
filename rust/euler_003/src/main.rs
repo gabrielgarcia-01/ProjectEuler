@@ -1,25 +1,28 @@
 fn main() {
-    let max_palindrome: u64 = find_largest_palindrome(1000);
-    println!("{max_palindrome}");
-}
-fn palindrome_checker(n: u64) -> bool {
-    let s: String = n.to_string();
-    let mut s_reversed: String = String::new();
-    for c in s.chars().rev() {
-        // Reverse the String from int
-        s_reversed.push(c);
+    const LEN: usize = 2_000_000;
+    let num = 600_851_475_143;
+    let primes: [bool; LEN] = sieve_of_eratosthenes();
+    let mut max_prime_factor = 0;
+    for n in 2..LEN {
+        if primes[n] && num % n == 0 && n > max_prime_factor {
+            max_prime_factor = n;
+        }
     }
-    s_reversed.eq(&s) // If n equals itself reversed -> palindrome
+    println!("{max_prime_factor}");
 }
-fn find_largest_palindrome(n: u64) -> u64 {
-    let mut max_palindrome: u64 = 0;
-    for i in 100..n {
-        for j in 100..n {
-            let product = i * j;
-            if palindrome_checker(product) && product > max_palindrome {
-                max_palindrome = product;
+fn sieve_of_eratosthenes<const LEN: usize>() -> [bool; LEN] {
+    // Returns a boolean array with all
+    // primes from 0 to n (not inclusive)
+    let mut primes = [true; LEN];
+    primes[0] = false;
+    primes[1] = false;
+
+    for i in 2..LEN {
+        if primes[i] {
+            for j in (i * i..LEN).step_by(i) {
+                primes[j] = false;
             }
         }
     }
-    max_palindrome
+    primes
 }
