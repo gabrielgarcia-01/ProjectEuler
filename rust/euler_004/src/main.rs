@@ -1,4 +1,5 @@
 fn main() {
+    // Find the largest palindrome under 1000
     let max_palindrome: u64 = find_largest_palindrome(1000);
     println!("{max_palindrome}");
 }

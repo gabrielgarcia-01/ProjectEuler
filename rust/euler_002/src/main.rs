@@ -1,4 +1,5 @@
 fn main() {
+    // Find the sum of all even fibonnaci numbers under 4_000_000
     let mut n = 1;
     let mut sum = 0;
     loop {

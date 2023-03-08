@@ -1,4 +1,5 @@
 fn main() {
+    // Find the sum of all prime numbers under 2_000_000
     const LEN: usize = 2_000_000;
     let primes: [bool; LEN] = sieve_of_eratosthenes();
     let mut sum = 0;

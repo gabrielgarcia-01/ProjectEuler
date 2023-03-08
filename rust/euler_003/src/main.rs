@@ -1,4 +1,5 @@
 fn main() {
+    // Find the largest prime factor of 600_851_475_143
     const LEN: usize = 2_000_000;
     let num = 600_851_475_143;
     let primes: [bool; LEN] = sieve_of_eratosthenes();
