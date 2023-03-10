@@ -2,11 +2,15 @@ fn main() {
     // Find the sum of all prime numbers under 2_000_000
     const LEN: usize = 2_000_000;
     let primes: [bool; LEN] = sieve_of_eratosthenes();
-    let mut sum = 0;
-    for n in 2..LEN {
+    let mut sum = 2;
+    let mut n = 3;
+    while n < LEN {
         if primes[n] {
             sum += n;
         }
+        n += 2;
+        // Can do += 2 since we start at three, and checking if an even number
+        // is prime is a waste of time and an unnecessary array access
     }
     println!("{sum}");
 }

@@ -22,7 +22,7 @@ class Eueler13 {
 	 */// used this to make sure everything was working on file input
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader("Euler13.txt"));
+		BufferedReader reader = new BufferedReader(new FileReader("Euler013.txt"));
 		ArrayList<BigInteger> bigList = new ArrayList<BigInteger>();
 		String line = "";
 		while ((line = reader.readLine()) != null) {
@@ -34,4 +34,3 @@ class Eueler13 {
 		System.out.println(largeSumFirstTen(bigList));
 	}
 }
-

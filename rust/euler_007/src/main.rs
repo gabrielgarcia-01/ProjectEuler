@@ -1,5 +1,8 @@
 fn main() {
     // Find the 10_001st prime number
+    // Didn't use a sieve for this since I'd have to arbitrarily decide the size of the sieve
+    // since there's no way to calculate (AFAIK), how many natural numbers it will take to reach
+    // the nth prime number and conversely, the size the sieve would need to be
     let nth_prime = nth_prime(10_001);
     println!("{nth_prime}");
 }
